@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-main: #FAFAFA;
+  --bg-dark: #111111;
+
+  --text-main: #111111;
+  --text-light: #FFFFFF;
+
+  --accent: #D6B98C;
+
+  --gray-main: #555555;
+  --gray-light: #888888;
+  --gray-border: #E5E5E5;
+}
+
+body {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+}
+.intro {
+ min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 30%, #f5f5f5 0%, #ececec 45%, #e4e4e4 100%);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  
+}
+#typing {
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+  margin: 0;
+  min-height: 1.1em;
+}
+#typing::after {
+  content: "|";
+  animation: blink 0.8s steps(1) 6.5 forwards;
+  margin-left: 4px;
+  color: var(--accent);
+
+}
+@media (max-width: 600px){
+  #typing{
+    text-align: left;
+    font-size: 4.2rem;
+    font-weight: 700;
+  }
+}
+.dot{
+
+  animation: colorChange 0.5s ease forwards;
+  animation-delay: 2s;
+
+}
+.subtitle {
+  margin-top: 18px;
+  font-size: clamp(1.4rem, 3.2vw, 3rem);
+  font-weight: 700;
+  line-height: 1.45;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 1.2s ease forwards;
+  animation-delay: 2.2s;
+  background: linear-gradient(90deg, #222 0%, #666 45%, #999 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media (max-width: 600px){
+  .subtitle{
+    text-align: left;
+    font-size: 1.8rem;
+    padding-top: 0.5em;
+  }
+}
+.enter-btn {
+  margin-top: 50px;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 2.6s;
+  position: relative;
+  padding-bottom: 6px;
+  
+
+}
+.enter-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--text-main);
+  transform: scaleX(0.6);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+  opacity: 0.7;
+  
+}
+.enter-btn:hover::after {
+  transform: scaleX(1);
+}
+@media (max-width: 600px){
+  .enter-btn{
+    scale: 1.2;
+    margin-top: 10em;
+    padding-top: 1em;
+    
+  }
+
+  .enter-btn::after{
+    opacity: 0.5;
+  }
+}
+.arrow{
+  color: var(--accent);
+  display: inline-block;
+  margin-left: 6px;
+  margin-right: 6px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 1.2s ease forwards,
+  scrolMove 1.6s ease-in-out infinite;
+  animation-delay: 2.6s;
+}
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+ 
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes scrolMove {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(4px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+
+}
+@keyframes colorChange {
+  0% {
+    color: #111111;
+  }
+
+ 
+
+  100% {
+    color: #D6B98C;
+  }
+
+}
+.light {
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+.dark {
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+.button {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 10px 20px;
+  display: inline-block;
+  margin-top: 20px;
+}
+.button:hover {
+  background: var(--accent);
+  color: #111;
+}
+.cords{
+  position: absolute;
+  top:  95vh;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.1em;
+  color: var(--gray-main);
+}
+@media (max-width: 600px){
+  .cords{
+    scale: 0.9;
+    top: 94vh; 
+  }
+}
+
+/*MAIN MAIN MAIN MAIN MAIN*/
+
+
+.main {
+  min-height: 100vh;
+  background: #FAFAFA;
+  color: var(--text-main);
+  display: flex; 
+  justify-content: center;            
+  overflow: hidden;        
+  position: relative;
+
+}
+
+.main .date{
+  font-size: 200px;
+  position: absolute;
+  right: 0;
+  top: -10%;
+  transform: rotate(-90deg);
+  transform-origin: bottom right;
+  color: var(--gray-main);
+  opacity: 0.1;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 800px){
+  .main .date{
+    font-size: 120px;
+    top: 25%;
+  }
+}
+
+@media (max-width: 600px){
+  .main .date{
+    font-size: 100px;
+    bottom: 35%;
+    right: -50%;
+    opacity: 0.02;
+
+  }
+}
+@media (max-width: 500px){
+  .main .date{
+      right: -30%;
+      bottom: 40%;
+
+  }
+}
+
+
+.main h2{
+  font-size: clamp(70px, 12vw, 420px);
+  font-weight: 900;
+  line-height: 0.7em;
+  color: var(--text-main);
+  position: absolute;
+  transform: translate(0%, 0%);
+  right: 25%;
+  top: 25%;
+  margin: 0;
+ 
+}
+@media (max-width: 1400px){
+  .main h2{
+    font-size: clamp(120px, 10vw, 200px);
+    top: 10%;
+  }
+}
+
+@media (max-width: 850px){
+  .main h2{
+    font-size: clamp(120px, 10vw, 200px);
+    right: 10%;
+    top: 30%;
+  }
+}
+
+@media (max-height: 850px){
+  .main h2{
+    top: 5%;
+  }
+}
+
+@media (max-width: 600px){
+  .main h2{
+    font-size: clamp(120px, 10vw, 200px);
+    left: 1%;
+    top: 1%;
+    z-index: 1;
+  }
+}
+
+
+.backgroundname{   
+  width: 100%;
+  height: 100vh;       
+  font-size: 780px;
+  font-weight: 900px;
+  letter-spacing: 100px;
+  color: rgba(0, 0, 0, 0.008);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0; 
+  line-height: 690px;
+  text-align:start;
+}
+
+.myPhoto{
+  position: absolute;
+  bottom: 0;
+  right: 5%;
+  width: 30vh;
+  aspect-ratio: 3/4;
+  box-shadow: 0px 0px 1px var(--gray-light);
+  filter: grayscale(1);
+  background-image: url(handsome-asian-man-portrait-studio-shot-clean-skin-young-adult-male-model-free-photo.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+@media
+  (max-width: 1400px){
+    .myPhoto{
+      width: 25vw;
+      right: 2%;
+    }
+  }
+
+  @media
+  (max-width: 600px){
+    .myPhoto{
+      width: 250px;
+      top: 9%;
+      right: 0;
+      height: 300px;
+      z-index: 0;
+      
+    }
+  }
+
+    @media
+  (max-width: 450px){
+    .myPhoto{
+      width: 150px;
+      top: 15%;
+      right: 0;
+      height: 200px;
+      z-index: 0;
+      
+    }
+  }
+.myPhoto::before{
+  content: "[001]";
+  color: var(--gray-main);
+  font-size: larger;
+  font-weight: 700;
+  position: absolute;
+  transform: translateY(-50px);
+}
+@media (max-width: 600px){
+  .myPhoto::before{
+    opacity: 0;
+  }
+}
+
+
+.about{
+  position: absolute; 
+  bottom: 20%;
+  right: 30%;
+  width: 30%;
+  height: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  text-align: start;
+  font-size: large;
+  letter-spacing: 0.2em;
+
+}
+
+@media (max-width: 1400px){
+  .about{
+    right: 35%;
+    width: 40%;
+    gap: 40px;
+    font-size: medium;
+    letter-spacing: 0.2em;
+    bottom: 35%;
+    grid-template-columns: 1fr;
+    max-width: 300px;
+
+  }
+}
+
+@media (max-width: 1250px){
+  .about{
+   bottom: 45%;
+  }
+}
+
+
+
+@media (max-width: 850px){
+  .about{
+    width: 50%;
+    gap: 5px;
+    bottom: 30%;
+  }
+}
+
+@media (max-width: 600px){
+  .about{
+    grid-template-columns: 1fr 1fr;
+    max-width: 500px;
+    width: 90%;
+    gap: 20px;
+    height: 60px;
+    top: 45%;
+  }
+}
+
+@media (max-width: 450px) and (min-height: 800px){
+  .about{
+    top: 47%;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    left: 5%;
+  }
+}
+
+
+@media (max-width: 450px) and (max-height: 800px){
+  .about{
+    top: 49%;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    left: 5%;
+  }
+}
+
+.main .skills{
+  position: absolute;
+  font-size: clamp(10px, 3vw, 40px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  text-shadow: 2px 0 0 #111, -1px 0 0 #111;
+  left: 10%;
+  top: 5%;
+}
+@media (max-width: 1400px){
+  .main .skills{
+    left: 5%;
+    top: 10%;
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+}
+
+
+
+@media (max-width: 600px) and (min-height: 800px){
+  .main .skills{
+    left: 5%;
+    top: 70%;
+  }
+}
+
+@media (max-width: 600px) and (max-height: 800px){
+  .main .skills{
+    left: 25%;
+    top: 65%;
+    scale: 0.7;
+  }
+}
+
+@media (max-width: 400px) and (max-height: 900px){
+  .main .skills{
+    scale: 0.7;
+  }
+}
+
+
+
+.main .skills ul li{
+  list-style:square;
+  color: var(--text-main);
+  margin-left: 30px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  text-shadow: none;
+}
+
+
+#skills{
+  text-shadow: none;
+  font-weight: 100;
+  font-size: medium;
+  margin-left: 10px;
+  letter-spacing: normal;
+}
+
+
+/*MAIN TIMELINE MAIN */
+
+.timeline {
+  color: #111111;
+  position: absolute;
+  bottom: 25%;
+  left: 20%;
+  max-width: 250px;
+  margin-right: 200px;
+  scale: 1.4;
+    }
+
+  @media (max-width: 1400px){
+    .timeline{
+      left: 15%;
+      bottom: 40%;
+      scale: 1;
+    }
+  }
+  @media (max-width: 1200px){
+    .timeline{
+      left: 10%;
+      bottom: 25%;
+      max-width: 150px;;
+      scale: 0.8;
+    }
+  }
+
+  @media (max-width: 800px){
+    .timeline{
+      bottom: 47%;
+      scale: 0.6;
+    }
+  }
+
+
+ @media (max-width: 600px){
+  .timeline{
+    scale: 0.5;
+  }
+}
+
+ @media (max-width: 450px) and (min-height: 800px){
+  .timeline{
+    scale: 0.7;
+    top: 25%;
+    left: 15%;
+  }
+}
+ @media (max-width: 450px) and (max-height: 800px){
+  .timeline{
+    scale: 0.5;
+    top: 30%;
+    left: -5%;
+    width: 300px;
+    max-width: 300px;
+  }
+}
+
+ @media (max-width: 400px) and (max-height: 900px){
+  .timeline{
+    scale: 0.5;
+    top: 30%;
+    left: 0%;
+    width: 250px;
+    max-width: 300px;
+  }
+}
+
+
+
+
+.timeline h2{
+    position: absolute;
+    left: -40px;
+    top: -60px;
+    margin: 0;
+    font-size: 18px;
+
+}
+.timeline img{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: -80px;
+    top: -70px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2em;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: var(--gray-main);
+}
+
+.timeline-content::before{
+    content: "2024";
+    position: absolute;
+    left: -1em;
+    top: -1.6em;
+    font-weight: 500;
+
+}
+.timeline-item:nth-child(3)  .timeline-content::before{
+    content: "now";
+}
+.timeline-item:last-child .timeline-content::before {
+    content: "2020";
+}
+
+.timeline-content h3 {
+  margin: 0;
+  margin-left: 1em;
+  font-size: 16px;
+}
+.timeline-content p
+{
+    margin: 0px 0px 0px 1.3em;
+    font-size: smaller;
+    color: var(--gray-light);
+}
+
+.main .oriental{
+  position: absolute;
+  font-size: 30px;
+  letter-spacing: 5px;
+  font-weight: 100;
+  color: var(--text-main);
+  bottom: 0;
+  left: 0;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  color: var(--accent);
+  opacity: 0.7;
+}
+@media (max-width: 1400px){
+  .main .oriental{
+    font-size: 25px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 800px){
+  .main .oriental{
+    font-size: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-height: 500px){
+  .main .oriental{
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 450px){
+  .main .oriental{
+    font-size: 10px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<section class="intro">
+  <h1 id="typing"></h1>
+  <p class="subtitle">Learning. Building. Improving.</p>
+  <a href="#" class="enter-btn" id="scrollBtn"> Explore </a>
+  <span class="arrow">↓</span>
+
+  <div class="cords">[51.25° N, 22.57° E]</div>
+  
+</section>
+
+<section id="main" class="main">
+  <div class="date">2026</div>
+
+  <div class="backgroundname">TARGO<br>NSKI</div>
+
+  <div class="skills">SKILLS<span id="skills">[SOFT]</span>
+    <ul>
+      <li>Active listening</li>
+      <li>Presentation skills</li>
+      <li>Time management</li>
+      <li>Multitasking</li>
+      <li>Critical thinking</li>
+      <li>Resilience</li>
+    </ul>
+  </div>
+
+  <h2>About<br>me<span class="dot">.</span></h2>
+  <div class="myPhoto">
+  </div>
+
+  <div class="about">
+    <div>I am a passionate computer science student with a keen interest in software development, aquascaping, and photography. I enjoy learning new technologies, building projects, and constantly improving my skills.
+    </div>
+    <div>Tech enthusiast, lifelong learner, and creative problem solver. I love coding, experimenting with aquariums, and capturing the world through my lens. Always exploring, building, and improving.</div>
+  </div>
+ 
+ 
+  <div class="timeline">
+        <img src="graduation-cap-thin-svgrepo-com (1).svg" alt="graduation cap">
+        <h2>Education</h2>
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <h3>Lublin University of Technology</h3>
+      <p>BSc in Applied Computer Science in Electrical Engineering</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <h3>High School</h3>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content" >
+    </div>
+  </div>
+</div>
+
+<div class="oriental">採用担当者の皆様へ</div>
+
+</section>
+
+<section class="dark" style="display: flex; align-items: center; justify-content: center; color: var(--gray-border);">
+  <p>Designed and Created by Me</p>
+</section>
+
+<script>
+  const text = "Wojciech Targonski.";
+  const typingElement = document.getElementById("typing");
+
+  let index = 0;
+
+  function typeLetter() {
+    if (index < (text.length)) {
+      typingElement.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeLetter, 100);
+    }
+    else{
+      const fullText = typingElement.textContent;
+
+      typingElement.innerHTML =
+        fullText.slice(0, -1) +
+        '<span class="dot">.</span>';
+   
+    }
+  }
+
+  
+  typeLetter();
+  
+
+
+  const scrollBtn = document.getElementById("scrollBtn");
+  const targetSection = document.getElementById("main");
+
+  scrollBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    const target = targetSection.offsetTop;
+    const start = window.scrollY;
+    const duration = 1600;
+    let startTime = null;
+
+    function easeInOutQuad(t) {
+      return t < 0.5
+        ? 2 * t * t
+        : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    }
+
+    function animateScroll(currentTime) {
+      if (!startTime) startTime = currentTime;
+
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const easedProgress = easeInOutQuad(progress);
+
+      window.scrollTo(0, start + (target - start) * easedProgress);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animateScroll);
+      }
+    }
+
+    requestAnimationFrame(animateScroll);
+  });
+</script>
+
+</body>
+</html>
