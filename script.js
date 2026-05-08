@@ -86,3 +86,18 @@ function animate() {
 
 window.addEventListener("load", animate);
 
+
+
+
+const items = document.querySelectorAll(".griditem");
+
+items.forEach(item => {
+    item.addEventListener("click", () => {
+
+        items.forEach(el => {
+            el.classList.remove("hover");
+        });
+
+        item.classList.add("hover");
+    });
+});
