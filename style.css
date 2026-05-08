@@ -697,6 +697,7 @@ body {
 }
 .overlay p {
         margin: 0px;
+        pointer-events: none;
 }
 @media (max-width: 600px) {
         .overlay p {
