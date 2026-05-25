@@ -431,34 +431,29 @@ body {
   font-size: clamp(10px, 3vw, 40px);
   font-weight: 900;
   letter-spacing: -2px;
-  text-shadow: 2px 0 0 #111, -1px 0 0 #111;
+  text-shadow: 1px 0 0 #111;
   left: 10%;
   top: 5%;
 }
-@media (max-width: 1400px){
+@media (max-width: 1500px){
   .main .skills{
     left: 5%;
     top: 10%;
-    font-size: 20px;
     letter-spacing: 2px;
+    scale: 0.8;
   }
 }
-@media (max-width: 600px) and (min-height: 800px){
-  .main .skills{
-    left: 5%;
-    top: 70%;
-  }
-}
-@media (max-width: 600px) and (max-height: 800px){
+
+@media (max-width: 600px) {
   .main .skills{
     left: 25%;
     top: 65%;
-    scale: 0.7;
+    scale: 0.9;
   }
 }
-@media (max-width: 400px) and (max-height: 900px){
+@media (max-width: 400px) {
   .main .skills{
-    scale: 0.7;
+    scale: 0.9;
   }
 }
 .main .skills ul li{
@@ -485,11 +480,11 @@ body {
   margin-right: 200px;
   scale: 1.4;
 }
-  @media (max-width: 1400px){
+  @media (max-width: 1500px){
     .timeline{
       left: 15%;
-      bottom: 40%;
-      scale: 1;
+      bottom: 15%;
+      scale: 0.8;
     }
 }
   @media (max-width: 1200px){
@@ -751,6 +746,7 @@ body {
   overflow: hidden;
   margin-bottom: 50px;
   margin-top: 50px;
+  filter: grayscale(0.15);
 }
 @media (max-width: 600px) {
   .carousel {
@@ -862,3 +858,84 @@ footer{
   flex-direction: column;
   justify-content: flex-end;
 }
+
+
+
+.projects article {
+  margin: clamp(40px, 6vw, 100px) clamp(24px, 6vw, 100px);
+}
+
+.projects div h2 {
+  margin: 0 clamp(24px, 6vw, 100px) 100 0;
+  font-size: clamp(64px, 11vw, 200px);
+  line-height: 0.9;
+}
+
+.projects div h5 {
+  color: var(--gray-main);
+  margin: 0 clamp(24px, 10vw, 200px) 0 0;
+}
+
+.projectsnumbers {
+  margin-left: clamp(-30px, -2vw, -10px);
+  color: var(--gray-light);
+}
+
+.projects h3 {
+  font-size: clamp(42px, 6vw, 96px);
+  margin-top: 0;
+}
+
+.projects article p {
+  margin-left: clamp(0px, 18vw, 300px);
+  max-width: 900px;
+  font-size: clamp(18px, 2vw, 32px);
+  font-weight: 100;
+  line-height: 1.35;
+}
+
+.projects .stack {
+  font-size: clamp(16px, 1.5vw, 24px);
+  text-align: end;
+  margin-right: clamp(24px, 5vw, 80px);
+}
+
+article a {
+  text-decoration: none;
+  color: var(--accent);
+  filter: grayscale(0.2);
+  font-size: clamp(14px, 1vw, 18px);
+}
+
+@media (max-width: 700px) {
+ 
+
+  .projects div h2 {
+    margin-right: 0;
+    font-size: clamp(56px, 18vw, 100px);
+    margin-top: 100px;
+  }
+
+  .projects div h5 {
+    margin-right: 0;
+  }
+
+  .projects article {
+    margin: 50px 24px 80px;
+  }
+
+  .projects article p {
+    margin-left: 0;
+    font-size: 18px;
+  }
+
+  .projects .stack {
+    text-align: left;
+    margin-right: 0;
+  }
+
+  .projects h3 {
+    font-size: clamp(36px, 12vw, 64px);
+  }
+}
+
