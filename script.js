@@ -101,3 +101,9 @@ items.forEach(item => {
         item.classList.add("hover");
     });
 });
+
+document.addEventListener("click", () => {
+    items.forEach(el => {
+        el.classList.remove("hover");
+    });
+});
