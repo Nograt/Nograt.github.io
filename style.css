@@ -257,7 +257,6 @@ body {
 
   font-size: clamp(180px, 38vw, 780px);
   font-weight: 900;
-  letter-spacing: clamp(20px, 5vw, 100px);
   line-height: 0.8;
 
   color: rgba(0, 0, 0, 0.008);
@@ -273,12 +272,13 @@ body {
   grid-column: 6 / 11;
   grid-row: 3 / 5;
 
-  font-size: clamp(90px, 16vw, 310px);
+  font-size: clamp(90px, 12vw, 310px);
   font-weight: 900;
   line-height: 0.7;
   color: var(--text-main);
 
   margin: 0;
+  margin-bottom: 5px;
   padding: 0;
 
   justify-self: start;
@@ -297,7 +297,7 @@ body {
   right: 0;
   bottom: 0;
 
-  width: clamp(180px, 16vw, 320px);
+  width: clamp(250px, 16vw, 320px);
   aspect-ratio: 3 / 4;
 
   filter: grayscale(1);
@@ -331,10 +331,10 @@ body {
   gap: 3rem;
 
   width: 100%;
-  max-width: 760px;
+  max-width: 1000px;
 
   text-align: start;
-  font-size: clamp(12px, 0.9vw, 18px);
+  font-size: clamp(12px, 0.9vw, 20px);
   letter-spacing: 0.2em;
 
   align-self: start;
@@ -348,7 +348,7 @@ body {
   grid-column: 2 / 5;
   grid-row: 2 / 4;
 
-  font-size: clamp(22px, 2vw, 30px);
+  font-size: clamp(18px, 1vw, 30px);
   font-weight: 800;
   letter-spacing: -2px;
   text-shadow: 1px 0 0 #111;
@@ -360,7 +360,7 @@ body {
 }
 
 .main .skills ul {
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   padding-left: 2rem;
 }
 
@@ -384,19 +384,25 @@ body {
 
 /* timeline */
 .timeline {
-  grid-column: 3 / 6;
-  grid-row: 6 / 9;
+  grid-column: 2 / 6;
+  grid-row: 7 / 9;
 
   color: #111111;
-  max-width: 460px;
+  max-width: 280px;
 
   position: relative;
-
+  margin-left: 100px;
   align-self: start;
   justify-self: start;
-
   z-index: 2;
 }
+
+@media (max-width: 1500px) {
+  .timeline {
+    max-width: 200px;
+  }
+}
+
 
 .timeline h2 {
   position: absolute;
@@ -464,11 +470,13 @@ body {
 /* Japanese text */
 .main .oriental {
   grid-column: 1 / 5;
-  grid-row: 8 / 11;
+  grid-row: 10 / 11;
 
   font-size: 30px;
   letter-spacing: 5px;
   font-weight: 100;
+  text-wrap: nowrap;
+
 
   color: var(--accent);
   opacity: 0.7;
@@ -482,162 +490,405 @@ body {
   z-index: 2;
 }
 
-/* tablet */
+
 @media (max-width: 1200px) {
   .main {
-    grid-template-columns: 4vw repeat(12, 1fr) 4vw;
+    grid-template-columns: 5vw repeat(12, 1fr) 5vw;
+    grid-template-rows: 5vh repeat(10, 1fr) 5vh;
+
+    overflow: hidden;
   }
 
+  /* ABOUT ME */
   .main > h2 {
     grid-column: 6 / 12;
-    grid-row: 3 / 5;
-    font-size: clamp(90px, 13vw, 180px);
+    grid-row: 3 / 4;
+
+    font-size: clamp(80px, 35vw, 170px);
+    line-height: 0.78;
+
+    align-self: start;
   }
 
-  .about {
-    grid-column: 6 / 11;
-    grid-row: 6 / 8;
-    grid-template-columns: 1fr;
-    max-width: 360px;
-    gap: 1.5rem;
+  /* 2026 */
+  .main .date {
+    grid-column: 12 / 15;
+    grid-row: 2 / 6;
+
+    font-size: clamp(100px, 12vw, 180px);
+
+    opacity: 0.04;
   }
 
-  .myPhoto {
-  grid-column: 11 / 14;
-  grid-row: 5 / 9;
-  width: clamp(170px, 18vw, 280px);
-}
-
-  .timeline {
-    grid-column: 2 / 5;
-    grid-row: 6 / 9;
-  }
-
+  /* SKILLS */
   .main .skills {
     grid-column: 2 / 5;
     grid-row: 2 / 4;
-  }
-}
 
-/* small tablet / phone */
-@media (max-width: 900px) {
-  .main {
-    min-height: 100vh;
-    padding: 2rem;
-
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-
-    gap: 3rem;
+    font-size: clamp(14px, 1vw, 22px);
   }
 
-  .backgroundname {
-    font-size: clamp(120px, 35vw, 300px);
-    letter-spacing: 20px;
+  .main .skills ul li {
+    margin-left: 18px;
+    line-height: 1.6;
   }
 
-  .main .date {
-    grid-column: 1;
-    grid-row: auto;
-
-    writing-mode: horizontal-tb;
-    transform: none;
-
-    font-size: clamp(70px, 20vw, 120px);
-    opacity: 0.04;
-
-    justify-self: end;
-  }
-
-  .main > h2,
-  .main .skills,
-  .timeline,
-  .about,
-  .myPhoto,
-  .main .oriental {
-    grid-column: 1;
-    grid-row: auto;
-  }
-
-  .main > h2 {
-    font-size: clamp(90px, 22vw, 160px);
-    justify-self: start;
-  }
-
-  .myPhoto {
-    width: 70%;
-    max-width: 320px;
-    justify-self: end;
-  }
-
+  /* ABOUT TEXT */
   .about {
+    grid-column: 4 / 11;
+    grid-row: 5/ 8;
+
     grid-template-columns: 1fr 1fr;
-    max-width: none;
-    font-size: 13px;
-    letter-spacing: 0.12em;
+
+    max-width: 800px;
+
+    gap: 1rem;
+
+    font-size: 16px;
+    letter-spacing: 0.18em;
+
+    align-self: start;
   }
 
+  /* TIMELINE */
   .timeline {
-    margin-left: 80px;
-  }
+    grid-column: 2 / 5;
+  grid-row: 8 / 11;
 
-  .main .skills {
-    font-size: 28px;
-  }
 
-  .main .oriental {
-    margin: 0;
-    font-size: 18px;
-  }
-}
+    margin-left: 60px;
 
-/* phone */
-@media (max-width: 600px) {
-  .main {
-    padding: 1.5rem;
-    gap: 2rem;
-  }
-
-  .main > h2 {
-    font-size: clamp(70px, 24vw, 120px);
-  }
-
-  .about {
-    grid-template-columns: 1fr;
-    font-size: 12px;
-    letter-spacing: 0.1em;
-  }
-
-  .myPhoto {
-    width: 80%;
-    max-width: 260px;
-  }
-
-  .myPhoto::before {
-    display: none;
-  }
-
-  .main .skills {
-    font-size: 24px;
-  }
-
-  .main .skills ul {
-    margin-top: 1rem;
-  }
-
-  .timeline {
-    margin-left: 70px;
     transform: scale(0.9);
     transform-origin: left top;
   }
 
+  /* PHOTO */
+  .myPhoto {
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+
+    width: 290px;
+
+    aspect-ratio: 3 / 4;
+  }
+
+  .myPhoto::before {
+    top: -35px;
+  }
+
+  /* BACKGROUND NAME */
+  .backgroundname {
+    line-height: 550px;
+    letter-spacing: 70px;
+
+  }
+
+  /* JAPANESE TEXT */
   .main .oriental {
-    font-size: 12px;
-    letter-spacing: 3px;
+    grid-column: 1 / 5;
+    grid-row: 10 / 12;
+
+    font-size: 18px;
+
+    margin-left: 40px;
+    margin-bottom: 25px;
   }
 }
 
 
+
+
+
+@media (max-width: 1000px) {
+  .main {
+    grid-template-columns: 4vw repeat(12, 1fr) 4vw;
+  }
+
+  /* ABOUT ME */
+  .main > h2 {
+    grid-column: 7 / 12;
+
+    font-size: clamp(90px, 17vw, 130px);
+
+    line-height: 0.8;
+  }
+
+  /* ABOUT TEXT */
+  .about {
+    grid-column: 4 / 11;
+    grid-row: 5/16;
+
+    max-width: 650px;
+
+    font-size: 13px;
+
+    gap: 1.5rem;
+
+    letter-spacing: 0.14em;
+  }
+
+  /* SKILLS */
+  .main .skills {
+    font-size: 15px;
+  }
+
+  .main .skills ul {
+    padding-left: 1.2rem;
+  }
+
+  .main .skills ul li {
+    margin-left: 10px;
+    line-height: 1.4;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    transform: scale(0.8);
+  }
+
+  /* PHOTO */
+  .myPhoto {
+    width: 260px;
+  }
+
+  /* DATE */
+  .main .date {
+    font-size: clamp(90px, 10vw, 140px);
+    grid-column: 12 / 15;
+    grid-row: 4 / 6;
+    opacity: 0.035;
+  }
+
+  /* BACKGROUND */
+  .backgroundname {
+    font-size: 600px;
+  }
+
+  /* JAPANESE TEXT */
+  .main .oriental {
+    font-size: 14px;
+
+    margin-left: 25px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+
+@media (max-width: 600px) {
+  .main {
+    height: 100svh;
+    padding: 0;
+
+    grid-template-columns: 5vw repeat(12, 1fr) 5vw;
+    grid-template-rows: 4vh repeat(14, 1fr) 4vh;
+
+    overflow: hidden;
+    position: relative;
+  }
+
+  .main > h2 {
+    grid-column: 2 / 13;
+    grid-row: 2 / 5;
+
+    font-size: clamp(78px, 25vw, 120px);
+    line-height: 0.72;
+
+    align-self: start;
+  }
+
+.myPhoto {
+  position: absolute;
+
+  right: 0;
+  top: 18vh;
+
+  width: 34vw;
+  max-width: 135px;
+  height: 180px;
+
+  aspect-ratio: auto;
+
+  background-size: cover;
+  background-position: center;
+
+  z-index: 1;
+}
+
+  .myPhoto::before {
+    font-size: smaller;
+    top: -19px;
+  }
+
+  .timeline {
+    grid-column: 3 / 8;
+    grid-row: 6 / 8;
+
+    margin-left: 35px;
+    transform: scale(0.4);
+    transform-origin: left top;
+  }
+
+  .about {
+    grid-column: 3 / 13;
+    grid-row: 9 / 11;
+
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+
+ @media (max-width: 600px) {
+  .main .skills {
+    position: absolute;
+
+    right: 0;
+    bottom: 1em;
+
+    grid-column: unset ;
+    grid-row: unset ;
+
+    width: max-content;
+
+    font-size: 10px;
+    letter-spacing: -1px;
+
+    margin: 0;
+    transform: none;
+
+    z-index: 4;
+  }
+}
+
+  .main .skills ul {
+    padding-left: 1rem;
+    margin-top: 0.4rem;
+  }
+
+  .main .skills ul li {
+    margin-left: 8px;
+    line-height: 1.25;
+  }
+
+  #skills {
+    font-size: 10px;
+  }
+
+  .main .date {
+    grid-column: 8 / 14;
+    grid-row: 10 / 15;
+
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+
+    font-size: 80px;
+    opacity: 0.035;
+  }
+
+  .backgroundname {
+    font-size: 260px;
+    line-height: 0.8;
+    letter-spacing: 25px;
+  }
+
+  .main .oriental {
+    grid-column: 1 / 9;
+    grid-row: 15 / 16;
+
+    font-size: 10px;
+    letter-spacing: 4px;
+
+    margin-left: 12px;
+    margin-bottom: 14px;
+  }
+}
+
+
+
+
+@media (max-width: 330px), (max-height: 600px) {
+  .main {
+    height: auto;
+    min-height: 100svh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 28px 22px;
+    gap: 22px;
+
+    overflow: visible;
+  }
+
+  .main > h2 {
+    font-size: 72px;
+    line-height: 0.72;
+    margin: 0;
+
+    order: 1;
+  }
+
+  .myPhoto {
+    position: relative;
+    order: 2;
+
+    right: auto;
+    top: auto;
+    bottom: auto;
+
+    width: 100%;
+    max-width: none;
+    height: 160px;
+
+    background-position: center 35%;
+  }
+
+  .timeline {
+    order: 3;
+
+    position: relative;
+    margin-left: 55px;
+    margin-top: 50px;
+    transform: scale(0.55);
+    transform-origin: left top;
+  }
+
+  .about {
+    order: 4;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    gap: 14px;
+  }
+
+  .main .skills {
+    order: 5;
+
+    position: relative;
+    left: auto;
+    bottom: auto;
+    top: auto;
+
+    width: auto;
+
+    font-size: 11px;
+    transform: none;
+  }
+
+  .backgroundname,
+  .main .date,
+  .main .oriental {
+    display: none;
+  }
+}
 
 
 
